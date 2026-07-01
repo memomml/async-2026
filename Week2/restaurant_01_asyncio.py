@@ -1,48 +1,56 @@
+# Assignment Week2: Restaurant Asyncio Workflow
+# Concept: Sequential greeting followed by concurrent tasks for customer ordering/cooking/drinks.
 import asyncio
-import time
+from time import time, ctime
 
-def log(msg):
-    """พิมพ์ข้อความพร้อม timestamp แบบเดียวกับ time.ctime()"""
-    print(f"{time.ctime()} {msg}")
-
-async def greet_customer(name):
-    log(f"Greeting for Customer-{name} ...")
+# 1. ขั้นตอนต้อนรับหน้าร้าน ทำแบบ Synchronous เรียงทีละคน
+async def greet_diners(customer):
+    print(f"{ctime()} Greeting for Customer-{customer} ...")
     await asyncio.sleep(1)
-    log(f"Greeting for Customer-{name} ...Done!")
+    print(f"{ctime()} Greeting for Customer-{customer} ...Done!")
 
-async def serve_table(name):
-    log(f"  [Task-{name}] Taking Order ...")
+# 2. กระบวนการส่วนตัวของลูกค้าแต่ละคน ที่จะถูกนำไปรันแยกใน Task ของตัวเอง
+async def customer_private_workflow(customer):
+    # Take Order
+    print(f"{ctime()}  [Task-{customer}] Taking Order ...")
     await asyncio.sleep(1)
-    log(f"  [Task-{name}] Taking Order ...Done!")
+    print(f"{ctime()}  [Task-{customer}] Taking Order ...Done!")
 
-    log(f"  [Task-{name}] Cooking Spaghetti ...")
+    # Do Cooking
+    print(f"{ctime()}  [Task-{customer}] Cooking Spaghetti ...")
     await asyncio.sleep(1)
-    log(f"  [Task-{name}] Cooking Spaghetti ...Done!")
+    print(f"{ctime()}  [Task-{customer}] Cooking Spaghetti ...Done!")
 
-    log(f"  [Task-{name}] Manage Bar for Drink ...")
+    # Manage Bar
+    print(f"{ctime()}  [Task-{customer}] Manage Bar for Drink ...")
     await asyncio.sleep(1)
-    log(f"  [Task-{name}] Manage Bar for Drink ...Done!")
-
-    log(f"  [Task-{name}] All served!")
-    print()  # บรรทัดว่างหลัง "All served!" ของแต่ละโต๊ะ
+    print(f"{ctime()}  [Task-{customer}] Manage Bar for Drink ...Done!")
+    print(f"{ctime()}  [Task-{customer}] All served!\n")
 
 async def main():
-    start = time.time()
+    start_time = time()
+    customers = ['A', 'B', 'C']
 
-    # ช่วงที่ 1: ทักทายลูกค้าทีละคน (sequential)
-    for name in ["A", "B", "C"]:
-        await greet_customer(name)
+    # ----------------------------------------------------
+    # PHASE 1: Greet diners sequentially
+    # ----------------------------------------------------
+    for customer in customers:
+        await greet_diners(customer)
 
-    print()
-    log("--- All customers greeted. Scheduling independent Async Tasks! ---")
-    print()
+    print(f"\n{ctime()} --- All customers greeted. Scheduling independent Async Tasks! ---\n")
 
-    # ช่วงที่ 2: เสิร์ฟทุกโต๊ะพร้อมกัน (concurrent)
-    tasks = [asyncio.create_task(serve_table(name)) for name in ["A", "B", "C"]]
+    # ----------------------------------------------------
+    # PHASE 2: Spawn tasks for concurrent phases
+    # ----------------------------------------------------
+    tasks = []
+    for customer in customers:
+        task = asyncio.create_task(customer_private_workflow(customer))
+        tasks.append(task)
+
     await asyncio.gather(*tasks)
 
-    elapsed = time.time() - start
-    log(f"Finished Entire Restaurant Operation in {elapsed:.2f} seconds.")
+    duration = time() - start_time
+    print(f"{ctime()} Finished Cooking in {duration:0.2f} seconds.")
 
 if __name__ == "__main__":
     asyncio.run(main())
