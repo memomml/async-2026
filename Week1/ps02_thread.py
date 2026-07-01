@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from time import sleep, ctime, time, process_time
 import threading
 import os
@@ -48,4 +49,20 @@ def main():
     print(f"ทรัพยากร Memory (RAM) ที่ใช้: {mem_mb:.2f} MB")
 
 if __name__ == "__main__":
-    main()
+    main()
+=======
+from time import sleep, ctime, time, process_time
+import threading
+import os
+import psutil
+
+# ฟังก์ชันจำลองการทำกาแฟให้ลูกค้า 1 คน
+def make_coffee(customer_name):
+    pass
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
+>>>>>>> upstream/main

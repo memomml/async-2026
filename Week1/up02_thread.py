@@ -2,6 +2,7 @@ from time import sleep, ctime, time
 import threading
 
 def update_cup_number(customer_name):
+
     print(f"{ctime()} | LCD: Processing for customer {customer_name}...")
     sleep(1)
     print(f"{ctime()} | LCD: Done for customer {customer_name}.")
@@ -35,6 +36,3 @@ def main():
     total_time = time() - start
 
     print(f"{ctime()} | Total time: {total_time:.2f} seconds")
-
-if __name__ == "__main__":
-    main()

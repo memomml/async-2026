@@ -1,3 +1,4 @@
+
 import asyncio
 import time
 
@@ -25,6 +26,7 @@ async def main():
 
     end_time = time.time()
     print(f"{time.ctime()} | Total time: {end_time - start_time:.2f} seconds")
+
 
 if __name__ == "__main__":
     asyncio.run(main())

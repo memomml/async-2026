@@ -1,3 +1,4 @@
+
 from time import sleep, ctime, time
 
 # ฟังก์ชันจำลองการทำกาแฟให้ลูกค้า 1 คน
@@ -20,4 +21,6 @@ def main():
 
 # สั่งให้โปรแกรมทำงาน
 if __name__ == "__main__":
-    main()
+    main()
+
+

@@ -3,6 +3,7 @@ import os
 import threading
 import psutil
 
+<<<<<<< HEAD
 # ฟังก์ชันจำลองการทำกาแฟให้ลูกค้า 1 คนแบบซิงโครนัส
 def make_coffee(customer_name):
     # ดึง PID และ Thread ID ออกมาดู
@@ -42,4 +43,16 @@ def main():
 if __name__ == "__main__":
     main()
 
+=======
+
+# ฟังก์ชันจำลองการทำกาแฟให้ลูกค้า 1 คนแบบซิงโครนัส
+def make_coffee(customer_name):
+    pass
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
+>>>>>>> upstream/main
     

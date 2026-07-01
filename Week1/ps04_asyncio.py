@@ -6,6 +6,7 @@ import psutil
 
 # ฟังก์ชันจำลองการทำกาแฟแบบ Asynchronous
 async def make_coffee(customer_name):
+<<<<<<< HEAD
     # 1. ดู Process ID และ Thread ID (ซึ่งจะพบว่าเหมือนกันทุกคิว)
     pid = os.getpid()
     thread_id = threading.current_thread().native_id
@@ -57,4 +58,13 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 
+=======
+    pass
+
+async def main():
+    pass
+
+if __name__ == "__main__":
+    asyncio.run(main())
+>>>>>>> upstream/main
     

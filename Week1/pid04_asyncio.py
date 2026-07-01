@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from time import ctime, time
 import asyncio
 import os
@@ -44,4 +45,20 @@ async def main():
     print(f"{ctime()} | ใช้เวลารวมทั้งหมด: {duration:0.2f} วินาที")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(main())
+=======
+from time import ctime, time
+import asyncio
+import os
+import threading
+
+# ฟังก์ชันจำลองการทำกาแฟแบบ Asynchronous
+async def make_coffee(customer_name):
+    pass
+
+async def main():
+    pass
+
+if __name__ == "__main__":
+    asyncio.run(main())
+>>>>>>> upstream/main
