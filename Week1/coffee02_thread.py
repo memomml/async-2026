@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from time import sleep, ctime, time
 import threading
 
@@ -31,19 +31,5 @@ def main():
 # สั่งให้โปรแกรมทำงาน
 if __name__ == "__main__":
     main()
-=======
-from time import sleep, ctime, time
-import threading
 
-# ฟังก์ชันจำลองการทำกาแฟให้ลูกค้า 1 คน
-def make_coffee(customer_name):
-    pass
 
-def main():
-    # คิวลูกค้า
-    pass 
-
-# สั่งให้โปรแกรมทำงาน
-if __name__ == "__main__":
-    main()    
->>>>>>> upstream/main

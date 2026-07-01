@@ -4,7 +4,7 @@ import threading
 
 # ฟังก์ชันจำลองการทำกาแฟให้ลูกค้า 1 คนแบบซิงโครนัส
 def make_coffee(customer_name):
-<<<<<<< HEAD
+
     # ดึง PID และ Thread ID ออกมาดู
     pid = os.getpid()
     thread_id = threading.current_thread().native_id
@@ -32,13 +32,5 @@ def main():
 if __name__ == "__main__":
     main()
 
-=======
-    pass
 
-def main():
-    pass
-
-if __name__ == "__main__":
-    main()
->>>>>>> upstream/main
     

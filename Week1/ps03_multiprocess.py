@@ -6,7 +6,7 @@ import psutil
 
 # ฟังก์ชันจำลองการทำกาแฟให้ลูกค้า 1 คน
 def make_coffee(customer_name, result_queue):
-<<<<<<< HEAD
+
     # ดึง PID ของหน่วยประมวลผลนี้ (ซึ่งจะแยกกันเด็ดขาด)
     pid = os.getpid()
     thread_id = threading.current_thread().native_id
@@ -70,13 +70,5 @@ def main():
 if __name__ == "__main__":
     main()
 
-=======
-    pass
 
-def main():
-    pass
-
-if __name__ == "__main__":
-    main()
->>>>>>> upstream/main
     
