@@ -5,8 +5,7 @@ import httpx
 from time import ctime
 
 async def fetch_stock_price(server_name: str):
-    # หากต้องการส่งงานอาจารย์ ให้สลับไปใช้ IP ปลายทางนี้:
-    # url = f"http://172.16.2.117:8088/price/{server_name}"
+
     url = f"http://127.0.0.1:8088/price/{server_name}"
     
     # เปิดการเชื่อมต่อ HTTP Request แบบ Asynchronous ผ่านไลบรารี httpx เพื่อไม่ให้บล็อกสัญญาณลูปหลัก
