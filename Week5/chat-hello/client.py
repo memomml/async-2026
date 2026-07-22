@@ -67,8 +67,8 @@ async def get_index():
 
 if __name__ == "__main__":
     # client port
-    client_port = 8001
+    client_port = 8088
     # เปิด เบราว์เซอร์ อัตโนมัติไปยังหน้าจอ Client บนเครื่องนั้นๆ
-    webbrowser.open(f"http://127.0.0.1:{8001}")
+    webbrowser.open(f"http://127.0.0.1:{8088}")
     # รัน Local Web Server บน Port 8001
     uvicorn.run(app, host="127.0.0.1", port=client_port)
